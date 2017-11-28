@@ -1,0 +1,51 @@
+	else if (user instanceof Executor) { 
+									Executor executor = (Executor) user; 
+									System.out.print("Name: "); 
+									executor.setName(in.readLine().trim()); 
+									System.out.print("Lastname: "); 
+									executor.setLastName(in.readLine().trim()); 
+									System.out.print("Password: "); 
+									executor.setPassword(in.readLine().trim().hashCode()); 
+									System.out.println("Email: "); 
+									executor.setEmail(in.readLine().trim()); 
+									System.out.print("Salary: "); 
+									salary: while (true){ 
+										try { 
+											executor.setSalary(Double.parseDouble(in.readLine().trim())); 
+											break; 
+										} 
+										catch(NumberFormatException e) { 
+											System.out.println("Invalid format."); 
+											continue salary; 
+										} 
+									} 
+									admin.generateUserName(executor); 
+									admin.addUser(executor); 
+									continue admin; 
+								} 
+								
+								else if (user instanceof Manager) { 
+									Manager manager = (Manager) user; 
+									System.out.print("Name: "); 
+									manager.setName(in.readLine().trim()); 
+									System.out.print("Lastname: "); 
+									manager.setLastName(in.readLine().trim()); 
+									System.out.print("Password: "); 
+									manager.setPassword(in.readLine().trim().hashCode()); 
+									System.out.println("Email: "); 
+									manager.setEmail(in.readLine().trim()); 
+									System.out.print("Salary: "); 
+									salary: while (true){ 
+										try { 
+											manager.setSalary(Double.parseDouble(in.readLine().trim())); 
+											break; 
+										} 
+										catch(NumberFormatException e) { 
+											System.out.println("Invalid format."); 
+											continue salary; 
+										} 
+									} 
+									admin.generateUserName(manager); 
+									admin.addUser(manager); 
+									continue admin; 
+								} 
