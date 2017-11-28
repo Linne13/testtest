@@ -96,6 +96,15 @@ else if(mode.equals("3")) {
 							course.subjects.add(subject);
 							cnt++;
 							}
+							
+							CourseFile cf = new CourseFile();
+							System.out.println("Book name: ");
+							cf.setTitle(in.readLine().trim());
+							System.out.println("Book's author: ");
+							cf.setAuthor(in.readLine().trim());
+							System.out.println("Book isbn: ");
+							cf.setIsbn(in.readLine().trim());
+							
 							continue admin;
 							
 						}
