@@ -1,0 +1,29 @@
+if(mode.equals("1")) {
+							Order order = new Order();
+							System.out.println("Order title: ");
+							order.setTitle(in.readLine().trim());
+							System.out.println("Order content: ");
+							order.setText(in.readLine().trim());
+							
+							order.setSender(manager);
+							System.out.println("Order sender: " + manager.getName() + " " + manager.getUsername());
+							
+							
+							manager.makeOrder(order);
+							
+						} else if(mode.equals("2")) {
+							News news = new News();
+							Date date = new Date();
+							news.setDate(date);
+							System.out.println("Date: " + date.toString() );
+							System.out.println("News title: ");
+							news.setTitle(in.readLine().trim());
+							System.out.println("News content: ");
+							news.setText(in.readLine().trim());
+							
+							news.setSender(manager);
+							System.out.println("Order sender: " + manager.getName() + " " + manager.getUsername());
+
+							manager.postNews(news);
+						
+						}
