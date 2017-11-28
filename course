@@ -1,0 +1,99 @@
+else if(mode.equals("3")) {
+							Course course = new Course();
+							System.out.println("Course title: ");
+							course.courseTitle = in.readLine();
+							System.out.println("Number of credits: ");
+							course.credits = Integer.parseInt(in.readLine());
+							
+							faculty: while(true) {
+								System.out.println("Faculty: ");
+								System.out.println("1. FIT\n2. BS.\n3. FOGI\n4. ISE.");										
+								try {
+									String faculty = in.readLine().trim();
+									course.setFaculty(Faculty.valueOf(faculty.toUpperCase()));
+									break;
+								} catch (IllegalArgumentException e) {
+									System.out.println("Invalid format.");
+									continue faculty;
+								}	
+							}
+	
+							System.out.println("Prerequisite: ");
+							if (!showCourses()){
+								course.prerequisite = null;
+							}
+								
+							else {
+							System.out.println("Enter a number of a course");
+							prereq: while(true) {
+									try {
+								int i = Integer.parseInt(in.readLine()) - 1;
+								course.prerequisite = Storage.cources.get(i);
+								break;
+									}
+									catch(NumberFormatException e) { 
+										System.out.println("Invalid format."); 
+										continue prereq; 
+									}
+									
+								}	
+							}
+							
+							int cnt = 0;
+							while(cnt < course.credits)
+							{
+							Subject subject = new Subject();
+							
+							
+							System.out.println("Type of lesson: ");
+							System.out.println("1. LAB\n2. LEC\n3. PR");
+							type: while(true) {
+								try {
+								String type = in.readLine().trim();
+								subject.setType(Type.valueOf(type.toUpperCase()));
+								break;
+								}
+								catch (IllegalArgumentException e) {
+									System.out.println("Invalid format.");
+									continue type;
+								}	
+							}
+							
+							System.out.println("Room: ");
+							subject.setRoom(Integer.parseInt(in.readLine().trim()));
+							System.out.println("Weekday: ");
+							System.out.println("1. MON\n2. TUE\n3. WED\n4. THU\n5. FRI\n6. SAT");
+							week: while(true) {
+								try {
+									String weekday = in.readLine().trim();
+									subject.setWeekDay(Week.valueOf(weekday.toUpperCase()));
+									break;
+								}
+								catch (IllegalArgumentException e) {
+									System.out.println("Invalid format.");
+									continue week;
+								}	
+							}
+							
+							System.out.println("Choose hour");
+							hour: while(true)
+							{
+								try {
+									int hour = Integer.parseInt(in.readLine().trim());
+									if(hour >24)
+									{
+										System.out.println("Wrong hour");
+										continue hour;
+									}
+									break;
+								}
+								catch(NumberFormatException e) { 
+									System.out.println("Invalid format."); 
+									continue hour; 
+								} 
+							}
+							course.subjects.addElement(subject);
+							cnt++;
+							}
+							
+						}
