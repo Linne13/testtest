@@ -96,7 +96,6 @@ else if(mode.equals("3")) {
 							course.subjects.add(subject);
 							cnt++;
 							}
-							
 							continue admin;
 							
 						}
