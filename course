@@ -85,6 +85,7 @@ else if(mode.equals("3")) {
 										System.out.println("Wrong hour");
 										continue hour;
 									}
+									subject.setHour(hour);
 									break;
 								}
 								catch(NumberFormatException e) { 
@@ -92,8 +93,10 @@ else if(mode.equals("3")) {
 									continue hour; 
 								} 
 							}
-							course.subjects.addElement(subject);
+							course.subjects.add(subject);
 							cnt++;
 							}
+							
+							continue admin;
 							
 						}
