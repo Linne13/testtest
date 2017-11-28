@@ -42,7 +42,8 @@ else if(mode.equals("3")) {
 							int cnt = 0;
 							while(cnt < course.credits)
 							{
-							Subject subject = new Subject();
+							
+								Subject subject = new Subject();
 							
 							
 							System.out.println("Type of lesson: ");
@@ -93,6 +94,7 @@ else if(mode.equals("3")) {
 									continue hour; 
 								} 
 							}
+							
 							course.subjects.add(subject);
 							System.out.println("Lesson succesfully added");
 							cnt++;
@@ -102,6 +104,7 @@ else if(mode.equals("3")) {
 							System.out.println("1. YES\n2. NO");
 							if(Integer.parseInt(in.readLine()) == 2)
 							{
+								save();
 								continue admin;
 							}
 							else {
@@ -112,6 +115,9 @@ else if(mode.equals("3")) {
 							cf.setAuthor(in.readLine().trim());
 							System.out.println("Book isbn: ");
 							cf.setIsbn(in.readLine().trim());
-							
+							save();
 							continue admin;
 							}
+							
+							
+						}
