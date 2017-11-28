@@ -1,0 +1,22 @@
+public int getHour()
+	{
+		return calendar.get(Calendar.HOUR);
+	}
+	
+	public String getWeekDay()
+	{
+		if(calendar.get(Calendar.DAY_OF_WEEK) == 2) return "MONDAY";
+		else if(calendar.get(Calendar.DAY_OF_WEEK) == 3) return "TUESDAY";
+		else if(calendar.get(Calendar.DAY_OF_WEEK) == 4) return "WEDNESDAY";
+		else if(calendar.get(Calendar.DAY_OF_WEEK) == 5) return "THURSDAY";
+		else if(calendar.get(Calendar.DAY_OF_WEEK) == 6) return "FRIDAY";
+		else if(calendar.get(Calendar.DAY_OF_WEEK) == 7) return "SATTURDAY";
+		return "SUNDAY";
+		}
+	
+	public String toString()
+	{
+		 return String.format("Type: %s. Room: %s. Weekday: %s. Hour: %s.", type, room, getWeekDay(), getHour());
+	}
+	
+	
