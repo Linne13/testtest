@@ -18,7 +18,7 @@ public class Updater {
 	public static void updateStudent(BufferedReader in, int num) throws IOException {
 		student: while(true) {
 			Student student = Storage.students.get(num);
-			System.out.println("What do you want to change?\n1. Password.\n2. Speciality.\n3. Year of study.\n4. Last name.\n4. First name.");
+			System.out.println("What do you want to change?\n1. Password.\n2. Speciality.\n3. Year of study.\n4. First name.\n5. Last name.\n Press q to return to menu.");
 			String change = in.readLine();
 			if (change.equals("1")) {
 				System.out.println("Write new password.");
@@ -68,7 +68,7 @@ public class Updater {
 	public static void updateTeacher(BufferedReader in, int num) throws IOException {
 		teacher: while(true) {
 		Teacher teacher = Storage.teachers.get(num);
-		System.out.println("What do you want to change?\n1. Password.\n2. Position.\n3. Degree.\n4. Salary.\n5. Last name.\n6. First name.\n Press q to return to menu.");
+		System.out.println("What do you want to change?\n1. Password.\n2. Position.\n3. Degree.\n4. Salary.\n5. First name.\n6. Last name.\n7.Email.\n Press q to return to menu.");
 		String change = in.readLine();
 		if (change.equals("1")) {
 			System.out.println("Write new password.");
@@ -120,7 +120,12 @@ public class Updater {
 			teacher.setLastName(in.readLine());
 			System.out.println("Last name changed succesfully.");
 			continue teacher;
-		} else if(change.equals("q")) continue teacher;
+		} else if(change.equals("7")) {
+			System.out.println("Write new email.");
+			teacher.setEmail(in.readLine());
+			System.out.println("Email changed succesfully.");
+			continue teacher;
+		} else if(change.equals("q")) break;
 		else {
 			System.out.println("Invalid input.");
 			continue teacher;
@@ -133,7 +138,7 @@ public class Updater {
 		manager: while(true)
 		{
 			Manager manager = Storage.managers.get(num);
-			System.out.println("What do you want to change?\n1. Password.\n2. Department.\n3. Salary.\n4. Last name.\n5. First name.\n Press q to return to menu.");
+			System.out.println("What do you want to change?\n1. Password.\n2. Department.\n3. Salary.\n4. First name.\n5. Last name.\6.Email.\n Press q to return to menu.");
 			String change = in.readLine();
 			if (change.equals("1")) {
 				System.out.println("Write new password.");
@@ -170,7 +175,12 @@ public class Updater {
 				manager.setLastName(in.readLine());
 				System.out.println("Last name changed succesfully.");
 				continue manager;
-			} else if(change.equals("q")) continue manager;
+			} else if(change.equals("6")) {
+				System.out.println("Write new email.");
+				manager.setEmail(in.readLine());
+				System.out.println("Email changed succesfully.");
+				continue manager;
+			} else if(change.equals("q")) break;
 			else {
 				System.out.println("Invalid input.");
 				continue manager;
@@ -182,7 +192,7 @@ public class Updater {
 		executor: while(true) {
 
 			Executor executor = Storage.executors.get(num);
-			System.out.println("What do you want to change?\n1. Password.\n2. Salary. \n3. Last name.\n4. First name.\n Press q to return to menu.");
+			System.out.println("What do you want to change?\n1. Password.\n2. Salary. \n3. First name.\n4. Last name.\n5. Email.\n Press q to return to menu.");
 			String change = in.readLine();
 			if (change.equals("1")) {
 				System.out.println("Write new password.");
@@ -204,7 +214,12 @@ public class Updater {
 				executor.setLastName(in.readLine());
 				System.out.println("Last name changed succesfully.");
 				continue executor;
-			} else if(change.equals("q")) continue executor;
+			} else if(change.equals("5")) {
+				System.out.println("Write new email.");
+				executor.setEmail(in.readLine());
+				System.out.println("Email changed succesfully.");
+				continue executor;
+			} else if(change.equals("q")) break;
 			else {
 				System.out.println("Invalid input.");
 				continue executor;
@@ -216,7 +231,7 @@ public class Updater {
 		admin: while(true)
 		{
 			Admin adm = Storage.admins.get(num);
-			System.out.println("What do you want to change?\n1. Password.\n2. Salary. \n3. Last name.\n4. First name.\n. Press q to exit.");
+			System.out.println("What do you want to change?\n1. Password.\n2. Salary. \n3. First name.\n4. Last name. \n5. Email.\n Press q to exit.");
 			String change = in.readLine();
 			if (change.equals("1")) {
 				System.out.println("Write new password.");
@@ -238,7 +253,13 @@ public class Updater {
 				adm.setLastName(in.readLine());
 				System.out.println("Last name changed succesfully.");
 				continue admin;
-			} else if(change.equals("q")) continue admin;
+			} else if(change.equals("5")) {
+				System.out.println("Write new email.");
+				adm.setEmail(in.readLine());
+				System.out.println("Email changed succesfully.");
+				continue admin;
+			} 
+			else if(change.equals("q")) break;
 			else {
 				System.out.println("Invalid input.");
 				continue admin;
