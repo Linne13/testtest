@@ -1,0 +1,228 @@
+else if(mode.equals("5")) {
+							update: while(true) {
+								System.out.println("Who do you want to update?\n1. Student.\n2. Teacher.\n3. Manager.\n4. Executor.\n5. Admin.");
+								int user = Integer.parseInt(in.readLine());
+								if(showUsers(user)) {
+									int num = Integer.parseInt(in.readLine())-1;
+									if(user == 1) {
+										Student student = Storage.students.get(num);
+										System.out.println("What do you want to change?\n1. Password.\n2. Speciality.\n3. Year of study.\n4. Last name.\n4. First name.\n Press q to return to menu.");
+										String change = in.readLine();
+										if (change.equals("1")) {
+											System.out.println("Write new password.");
+											student.setPassword(in.readLine().hashCode());
+											System.out.println("Password changed succesfully.");
+											continue admin;
+										} else if(change.equals("2")) {
+											System.out.println("Write new speciality.");
+											student.setSpeciality(in.readLine());
+											faculty: while(true) {
+												System.out.println("Choose new faculty.");
+												System.out.println("1. FIT\n2. BS.\n3. FOGI\n4. ISE.");										
+												try {
+													String faculty = in.readLine().trim();
+													student.setFaculty(Faculty.valueOf(faculty.toUpperCase()));
+													break;
+												} catch (IllegalArgumentException e) {
+													System.out.println("Invalid format.");
+													continue faculty;
+												}	
+											}
+											System.out.println("Speciality changed succesfully.");
+											continue admin;
+										} else if(change.equals("3")) {
+											System.out.println("Write new year.");
+											student.setYear(Integer.parseInt(in.readLine()));
+											System.out.println("Year changed succesfully.");
+											continue admin;
+										} else if(change.equals("4")) {
+											System.out.println("Write new first name.");
+											student.setName(in.readLine());
+											System.out.println("First name changed succesfully.");
+											continue admin;
+										} else if(change.equals("5")) {
+											System.out.println("Write new last name.");
+											student.setLastName(in.readLine());
+											System.out.println("Last name changed succesfully.");
+											continue admin;
+										} else if(change.equals("q")) continue admin;
+										else {
+											System.out.println("Invalid input.");
+											continue update;
+										}
+									}
+									if(user == 2)
+									{
+										Teacher teacher = Storage.teachers.get(num);
+										System.out.println("What do you want to change?\n1. Password.\n2. Position.\n3. Degree.\n4. Salary.\n5. Last name.\n6. First name.\n Press q to return to menu.");
+										String change = in.readLine();
+										if (change.equals("1")) {
+											System.out.println("Write new password.");
+											teacher.setPassword(in.readLine().hashCode());
+											System.out.println("Password changed succesfully.");
+											continue admin;
+										} else if(change.equals("2")) {
+											position: while(true) {
+												System.out.println("Choose new position.");
+												System.out.println("1. TUTOR\n2. LECTOR\n3. PROFESSOR\n4. SENIOR_LECTOR");										
+												try {
+													String position= in.readLine().trim();
+													teacher.setPosition(Position.valueOf(position.toUpperCase()));
+													break;
+												} catch (IllegalArgumentException e) {
+													System.out.println("Invalid format.");
+													continue position;
+												}	
+											}
+											System.out.println("Position changed succesfully.");
+											continue admin;
+										} else if(change.equals("3")) {
+											degree: while(true) {
+												System.out.println("Choose new degree.");
+												System.out.println("1. PHD\n2. MS\n3. BA");										
+												try {
+													String degree= in.readLine().trim();
+													teacher.setDegree(Degree.valueOf(degree.toUpperCase()));
+													break;
+												} catch (IllegalArgumentException e) {
+													System.out.println("Invalid format.");
+													continue degree;
+												}	
+											}
+											System.out.println("Degree changed succesfully.");
+											continue admin;
+										} else if(change.equals("4")) {
+											System.out.println("Write new salary.");
+											teacher.setSalary(Double.parseDouble(in.readLine()));
+											System.out.println("Salary changed succesfully.");
+											continue admin;
+										}else if(change.equals("5")) {
+											System.out.println("Write new first name.");
+											teacher.setName(in.readLine());
+											System.out.println("First name changed succesfully.");
+											continue admin;
+										} else if(change.equals("6")) {
+											System.out.println("Write new last name.");
+											teacher.setLastName(in.readLine());
+											System.out.println("Last name changed succesfully.");
+											continue admin;
+										} else if(change.equals("q")) continue admin;
+										else {
+											System.out.println("Invalid input.");
+											continue update;
+										}
+									}
+									
+									if(user == 3)
+									{
+										Manager manager = Storage.managers.get(num);
+										System.out.println("What do you want to change?\n1. Password.\n2. Department.\n3. Salary.\n4. Last name.\n5. First name.\n Press q to return to menu.");
+										String change = in.readLine();
+										if (change.equals("1")) {
+											System.out.println("Write new password.");
+											manager.setPassword(in.readLine().hashCode());
+											System.out.println("Password changed succesfully.");
+											continue admin;
+										} else if(change.equals("2")) {
+											unit: while(true) {
+												System.out.println("Choose new department.");
+												System.out.println("1. OR\n2. IT");										
+												try {
+													String unit= in.readLine().trim();
+													manager.setType(Unit.valueOf(unit.toUpperCase()));
+													break;
+												} catch (IllegalArgumentException e) {
+													System.out.println("Invalid format.");
+													continue unit;
+												}	
+											}
+											System.out.println("Department changed succesfully.");
+											continue admin;
+										} else if(change.equals("3")) {
+											System.out.println("Write new salary.");
+											manager.setSalary(Double.parseDouble(in.readLine()));
+											System.out.println("Salary changed succesfully.");
+											continue admin;
+										}else if(change.equals("4")) {
+											System.out.println("Write new first name.");
+											manager.setName(in.readLine());
+											System.out.println("First name changed succesfully.");
+											continue admin;
+										} else if(change.equals("5")) {
+											System.out.println("Write new last name.");
+											manager.setLastName(in.readLine());
+											System.out.println("Last name changed succesfully.");
+											continue admin;
+										} else if(change.equals("q")) continue admin;
+										else {
+											System.out.println("Invalid input.");
+											continue update;
+										}
+									}
+									
+									if(user == 4)
+									{
+										Executor executor = Storage.executors.get(num);
+										System.out.println("What do you want to change?\n1. Password.\n2. Salary. \n3. Last name.\n4. First name.\n Press q to return to menu.");
+										String change = in.readLine();
+										if (change.equals("1")) {
+											System.out.println("Write new password.");
+											executor.setPassword(in.readLine().hashCode());
+											System.out.println("Password changed succesfully.");
+											continue admin;
+										} else if(change.equals("2")) {
+											System.out.println("Write new salary.");
+											executor.setSalary(Double.parseDouble(in.readLine()));
+											System.out.println("Salary changed succesfully.");
+											continue admin;
+										} else if(change.equals("3")) {
+											System.out.println("Write new first name.");
+											executor.setName(in.readLine());
+											System.out.println("First name changed succesfully.");
+											continue admin;
+										} else if(change.equals("4")) {
+											System.out.println("Write new last name.");
+											executor.setLastName(in.readLine());
+											System.out.println("Last name changed succesfully.");
+											continue admin;
+										} else if(change.equals("q")) continue admin;
+										else {
+											System.out.println("Invalid input.");
+											continue update;
+										}
+									}
+									
+									if(user == 5)
+									{
+										Admin adm = Storage.admins.get(num);
+										System.out.println("What do you want to change?\n1. Password.\n2. Salary. \n3. Last name.\n4. First name.\n. Press q to exit.");
+										String change = in.readLine();
+										if (change.equals("1")) {
+											System.out.println("Write new password.");
+											adm.setPassword(in.readLine().hashCode());
+											System.out.println("Password changed succesfully.");
+											continue admin;
+										} else if(change.equals("2")) {
+											System.out.println("Write new salary.");
+											adm.setSalary(Double.parseDouble(in.readLine()));
+											System.out.println("Salary changed succesfully.");
+											continue admin;
+										} else if(change.equals("3")) {
+											System.out.println("Write new first name.");
+											adm.setName(in.readLine());
+											System.out.println("First name changed succesfully.");
+											continue admin;
+										} else if(change.equals("4")) {
+											System.out.println("Write new last name.");
+											adm.setLastName(in.readLine());
+											System.out.println("Last name changed succesfully.");
+											continue admin;
+										} else if(change.equals("q")) continue admin;
+										else {
+											System.out.println("Invalid input.");
+											continue update;
+										}
+									}
+								}
+							}
+						}
